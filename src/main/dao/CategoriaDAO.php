@@ -20,7 +20,6 @@ class CategoriaDAO
     {
         $query = "INSERT INTO categorias (nome) VALUES ('" . $categoria->nome . "')";
         $conexao = Conexao::getConexao();
-        $conexao = new PDO('pgsql:host=localhost;port=5432;dbname=estoque;user=saraiva;password=conam$008');
         $conexao->exec($query);
     }
 }

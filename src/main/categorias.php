@@ -1,5 +1,5 @@
-<?php require_once 'cabecalho.php' ?>
 <?php
+    require_once 'cabecalho.php';
     use saraiva\phpcompdo\main\dao\CategoriaDAO;
 
     $categoriaDao = new CategoriaDAO();
@@ -31,8 +31,10 @@
             <tbody>
             <?php foreach ($lista as $linha) : ?>
             <tr>
-                <td style="width: 10%;"><a href="/categorias-detalhe.php" class="btn btn-link"><?php echo $linha['id'] ?></a></td>
-                <td style="width: 70%;"><a href="/categorias-detalhe.php" class="btn btn-link"><?php echo $linha['nome'] ?></a></td>
+                <td style="width: 10%;"><a href="/categorias-detalhe.php" 
+                    class="btn btn-link"><?php echo $linha['id'] ?></a></td>
+                <td style="width: 70%;"><a href="/categorias-detalhe.php" 
+                    class="btn btn-link"><?php echo $linha['nome'] ?></a></td>
                 <td style="width: 10%;"><a href="/categorias-editar.php" class="btn btn-info">Editar</a></td>
                 <td style="width: 10%;"><a href="#" class="btn btn-danger">Excluir</a></td>
             </tr>

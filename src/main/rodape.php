@@ -1,4 +1,5 @@
-<footer>
+<?php echo '<div></div>' ?>
+<footer class="container footer navbar-fixed-bottom">
     <p>&copy; 2017 Controle de Estoque</p>
 </footer>
 </div>
