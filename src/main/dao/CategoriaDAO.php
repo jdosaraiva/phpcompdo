@@ -23,18 +23,24 @@ class CategoriaDAO
         $conexao->exec($query);
     }
 
-    public function findById($id) : Categoria
+    public function findById($id): ?Categoria
     {
         $query = "SELECT id, nome FROM categorias WHERE id = $id";
         $conexao = Conexao::getConexao();
         $resultado = $conexao->query($query);
         $lista = $resultado->fetchAll();
-        foreach($lista as $row) {
-            $cat = $row;
-            break;
+        $cat = null;
+        if (!empty($lista)) {
+            foreach ($lista as $row) {
+                $cat = $row;
+                break;
+            }
         }
 
-        $categoria = new Categoria($cat['id'], $cat['nome']);
+        $categoria = null;
+        if ($cat) {
+            $categoria = new Categoria($cat['id'], $cat['nome']);
+        }
 
         return $categoria;
     }
