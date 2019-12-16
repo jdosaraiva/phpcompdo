@@ -16,6 +16,7 @@
         "phan/phan": "^2.4"
     },
     "autoload": {
+        "files": ["src\\main\\config.php"],
         "psr-4": {
             "saraiva\\phpcompdo\\": "src/"
         }

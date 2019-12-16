@@ -1,15 +1,16 @@
-<?php
-ini_set("display_errors", "1");
-error_reporting(E_ALL);
-
-require_once '..\..\vendor\autoload.php';
-
-use saraiva\phpcompdo\main\dao\CategoriaDAO;
-use saraiva\phpcompdo\main\model\Categoria;
-
-$nomeCategoria = htmlspecialchars($_POST['categoria']);
-$dao = new CategoriaDAO();
-$categoria = new Categoria($nomeCategoria);
-
-$dao->inserir($categoria);
-header('Location: /categorias.php');
+<?php require_once 'cabecalho.php' ?>
+<div class="row">
+    <div class="col-md-12">
+        <h2>Criar Nova Categoria</h2>
+    </div>
+</div>
+<div class="col-md-12">
+<form action="/categorias-nova-post.php" method="POST">
+  <div class="form-group">
+    <label for="categoria">Nome:</label>
+    <input type="text" class="form-control" placeholder="categoria" id="categoria" name="categoria">
+  </div>
+  <button type="submit" class="btn btn-primary">Salvar</button>
+</form>    
+</div>
+<?php require_once 'rodape.php' ?>

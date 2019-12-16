@@ -8,7 +8,10 @@ class Conexao
 {
     public static function getConexao()
     {
-        $conexao = new PDO('pgsql:host=localhost;port=5432;dbname=estoque;user=saraiva;password=conam$008');
+        $conexao = new PDO(DB_DRIVE
+            . ":host=" . DB_HOSTNAME . ";port=5432;dbname="
+            . DB_DATABASE, DB_USERNAME, DB_PASSWORD);
+        $conexao->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         return $conexao;
     }
 }

@@ -1,9 +1,15 @@
 <?php
-    require_once 'cabecalho.php';
-    use saraiva\phpcompdo\main\dao\CategoriaDAO;
+require_once 'cabecalho.php';
+use saraiva\phpcompdo\main\dao\CategoriaDAO;
+use saraiva\phpcompdo\main\model\Erro;
 
+$lista = [];
+try {
     $categoriaDao = new CategoriaDAO();
     $lista = $categoriaDao->listar();
+} catch (Exception $e) {
+    Erro::trataErro($e);
+}
 
 ?>
 <div class="row">
@@ -14,7 +20,7 @@
 
 <div class="row">
     <div class="col-md-4">
-        <a href="categorias-criar.php" class="btn btn-info btn-block">Crair Nova Categoria</a>
+        <a href="categorias-nova.php" class="btn btn-info btn-block">Crair Nova Categoria</a>
     </div>
 </div>
 <div class="row">
