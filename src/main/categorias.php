@@ -6,7 +6,7 @@ use saraiva\phpcompdo\main\model\Erro;
 $lista = [];
 try {
     $categoriaDao = new CategoriaDAO();
-    $lista = $categoriaDao->listar();
+    $lista = $categoriaDao->findAll();
 } catch (Exception $e) {
     Erro::trataErro($e);
 }

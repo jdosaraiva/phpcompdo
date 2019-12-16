@@ -7,7 +7,7 @@ use saraiva\phpcompdo\main\model\Categoria;
 
 class CategoriaDAO
 {
-    public function listar()
+    public function findAll()
     {
         $query = "SELECT id, nome FROM categorias";
         $conexao = Conexao::getConexao();
