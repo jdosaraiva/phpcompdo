@@ -32,6 +32,7 @@ try {
     <dt>Nome</dt>
     <dd><?php echo $categoria->nome ?></dd>
     <dt>Produtos</dt>
+    <?php if (count($produtos) > 0) : ?>
     <dd>
         <ul>
         <?php foreach ($produtos as $produto) : ?>
@@ -43,5 +44,8 @@ try {
         <?php endforeach ?>    
         </ul>
     </dd>
+    <?php else : ?>
+        <dd>Nenhum produto cadastrado</dd>
+    <?php endif ?>    
 </dl>
 <?php require_once 'rodape.php' ?>
