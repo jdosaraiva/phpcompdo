@@ -43,7 +43,8 @@ try {
                     class="btn btn-link"><?php echo $linha['nome'] ?></a></td>
                 <td style="width: 10%;"><a href="/categorias-editar.php?id=<?php echo $linha['id'] ?>" 
                     class="btn btn-info">Editar</a></td>
-                <td style="width: 10%;"><a href="#" class="btn btn-danger">Excluir</a></td>
+                <td style="width: 10%;"><a href="/categorias-excluir.php?id=<?php echo $linha['id'] ?>"
+                    class="btn btn-danger">Excluir</a></td>
             </tr>
             <?php endforeach ?>    
             </tbody>

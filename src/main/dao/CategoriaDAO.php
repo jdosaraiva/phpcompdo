@@ -23,6 +23,13 @@ class CategoriaDAO
         $conexao->exec($query);
     }
 
+    public function delete(Categoria $categoria)
+    {
+        $query = "DELETE FROM categorias WHERE id = $categoria->id";
+        $conexao = Conexao::getConexao();
+        $conexao->exec($query);
+    }
+
     public function findById($id): ?Categoria
     {
         $query = "SELECT id, nome FROM categorias WHERE id = $id";
