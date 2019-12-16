@@ -5,7 +5,7 @@ use saraiva\phpcompdo\main\model\Erro;
 
 $produtos = [];
 try {
-    $dao = new ProdutoDAO;
+    $dao = new ProdutoDAO();
     $produtos = $dao->findAll();
 } catch (Exception $e) {
     Erro::trataErro($e);
