@@ -25,6 +25,8 @@ try {
 </div>
 <div class="row">
     <div class="col-md-12">
+        <br />
+        <?php if (count($lista) > 0) : ?>
         <table class="table">
             <thead>
             <tr>
@@ -49,6 +51,9 @@ try {
             <?php endforeach ?>    
             </tbody>
         </table>
+        <?php else : ?>
+            <p>Nenhum categoria cadastrada</p>
+        <?php endif ?>    
     </div>
 </div>
 <?php require_once 'rodape.php' ?>

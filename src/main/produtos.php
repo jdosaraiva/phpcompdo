@@ -25,6 +25,8 @@ try {
 </div>
 <div class="row">
     <div class="col-md-12">
+        <br/>
+        <?php if (count($produtos) > 0) : ?>
         <table class="table">
             <thead>
             <tr>
@@ -57,6 +59,9 @@ try {
             <?php endforeach ?>    
             </tbody>
         </table>
+        <?php else : ?>
+            <p>Nenhum produto cadastrado</p>
+        <?php endif ?>    
     </div>
 </div>
 <?php require_once 'rodape.php' ?>
