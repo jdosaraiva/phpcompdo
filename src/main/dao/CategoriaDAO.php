@@ -30,6 +30,13 @@ class CategoriaDAO
         $conexao->exec($query);
     }
 
+    public function update(Categoria $categoria)
+    {
+        $query = "UPDATE categorias SET nome = '" . $categoria->nome . "' WHERE id = $categoria->id";
+        $conexao = Conexao::getConexao();
+        $conexao->exec($query);
+    }
+
     public function findById($id): ?Categoria
     {
         $query = "SELECT id, nome FROM categorias WHERE id = $id";
