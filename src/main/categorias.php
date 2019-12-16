@@ -37,9 +37,9 @@ try {
             <tbody>
             <?php foreach ($lista as $linha) : ?>
             <tr>
-                <td style="width: 10%;"><a href="/categorias-detalhe.php" 
+                <td style="width: 10%;"><a href="/categorias-detalhe.php?id=<?php echo $linha['id'] ?>" 
                     class="btn btn-link"><?php echo $linha['id'] ?></a></td>
-                <td style="width: 70%;"><a href="/categorias-detalhe.php" 
+                <td style="width: 70%;"><a href="/categorias-detalhe.php?id=<?php echo $linha['id'] ?>" 
                     class="btn btn-link"><?php echo $linha['nome'] ?></a></td>
                 <td style="width: 10%;"><a href="/categorias-editar.php?id=<?php echo $linha['id'] ?>" 
                     class="btn btn-info">Editar</a></td>
