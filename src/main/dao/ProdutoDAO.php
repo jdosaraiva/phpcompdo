@@ -50,11 +50,11 @@ class ProdutoDAO
         $query = "SELECT p.id, p.nome, p.preco, p.quantidade, p.categoria_id, c.nome as categoria "
             . "FROM produtos p JOIN categorias c ON p.categoria_id = c.id "
             . "WHERE p.categoria_id = $categoria->id";
-        $resultado = $conexao->query($query);
-        $resultSet = $resultado->fetchAll();
+        $resultSet = $conexao->query($query);
+        $resultado = $resultSet->fetchAll();
 
         $lista = [];
-        foreach ($resultSet as $row) {
+        foreach ($resultado as $row) {
             $categoria = new Categoria($row['categoria_id'], $row['categoria']);
             $produto = new Produto($row['id'], $row['nome'], $row['preco'], $row['quantidade'], $categoria);
             $lista[] = $produto;
