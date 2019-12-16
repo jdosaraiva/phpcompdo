@@ -20,7 +20,7 @@ try {
 
 <div class="row">
     <div class="col-md-4">
-        <a href="categorias-nova.php" class="btn btn-info btn-block">Crair Nova Categoria</a>
+        <a href="categorias-nova.php" class="btn btn-info btn-block">Criar Nova Categoria</a>
     </div>
 </div>
 <div class="row">

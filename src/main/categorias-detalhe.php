@@ -1,6 +1,7 @@
 <?php
 
 use saraiva\phpcompdo\main\dao\CategoriaDAO;
+use saraiva\phpcompdo\main\dao\ProdutoDAO;
 use saraiva\phpcompdo\main\model\Erro;
 
 require_once 'cabecalho.php';
@@ -8,10 +9,12 @@ require_once 'cabecalho.php';
 try {
     $id = $_GET['id'];
     $dao = new CategoriaDAO();
+    $produtoDao = new ProdutoDAO();
     $categoria = $dao->findById($id);
     if (!$categoria) {
         throw new Exception("Categoria não encontrada!");
     }
+    $produtos = $produtoDao->findByCategoria($categoria);
 } catch (Exception $e) {
     Erro::trataErro($e);
 }
@@ -31,8 +34,13 @@ try {
     <dt>Produtos</dt>
     <dd>
         <ul>
-            <li><a href="/produtos-editar.php">Senhor dos Aneis</a></li>
-            <li><a href="/produtos-editar.php">O Guia do Mochileiro das Galáxias</a></li>
+        <?php foreach ($produtos as $produto) : ?>
+            <li>
+                <a href="/produtos-editar.php?id=<?php echo $produto->id ?>">
+                    <?php echo $produto->nome ?>
+                </a>
+            </li>
+        <?php endforeach ?>    
         </ul>
     </dd>
 </dl>
