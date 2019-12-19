@@ -46,6 +46,7 @@ try {
                 <td style="width: 10%;"><a href="/categorias-editar.php?id=<?php echo $linha['id'] ?>" 
                     class="btn btn-info">Editar</a></td>
                 <td style="width: 10%;"><a href="/categorias-excluir.php?id=<?php echo $linha['id'] ?>"
+                    onclick="javascript: go(event);" 
                     class="btn btn-danger">Excluir</a></td>
             </tr>
             <?php endforeach ?>    
@@ -56,4 +57,15 @@ try {
         <?php endif ?>    
     </div>
 </div>
+<script>
+    function go(e) {
+        var retorno = confirm("Confirma a exclusão do registro?");
+        if (retorno == true) {
+            return true;
+        } else {
+            event.preventDefault();
+            return false;
+        }
+    }
+</script>
 <?php require_once 'rodape.php' ?>

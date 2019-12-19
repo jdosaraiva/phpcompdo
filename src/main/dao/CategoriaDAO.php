@@ -11,38 +11,48 @@ class CategoriaDAO
     {
         $query = "SELECT id, nome FROM categorias";
         $conexao = Conexao::getConexao();
-        $resultado = $conexao->query($query);
-        $lista = $resultado->fetchAll();
+        $stmt = $conexao->prepare($query);
+        $stmt->execute();
+        $lista = $stmt->fetchAll();
         return $lista;
     }
 
     public function inserir(Categoria $categoria)
     {
-        $query = "INSERT INTO categorias (nome) VALUES ('" . $categoria->nome . "')";
+        $query = "INSERT INTO categorias (nome) VALUES (:nome)";
         $conexao = Conexao::getConexao();
-        $conexao->exec($query);
+        $stmt = $conexao->prepare($query);
+        $stmt->bindValue(':nome', $categoria->nome);
+        $stmt->execute();
     }
 
     public function delete(Categoria $categoria)
     {
-        $query = "DELETE FROM categorias WHERE id = $categoria->id";
+        $query = "DELETE FROM categorias WHERE id = :id";
         $conexao = Conexao::getConexao();
-        $conexao->exec($query);
+        $stmt = $conexao->prepare($query);
+        $stmt->bindValue(':id', $categoria->id);
+        $stmt->execute();
     }
 
     public function update(Categoria $categoria)
     {
-        $query = "UPDATE categorias SET nome = '" . $categoria->nome . "' WHERE id = $categoria->id";
+        $query = "UPDATE categorias SET nome = :nome WHERE id = :id";
         $conexao = Conexao::getConexao();
-        $conexao->exec($query);
+        $stmt = $conexao->prepare($query);
+        $stmt->bindValue(':nome', $categoria->nome);
+        $stmt->bindValue(':id', $categoria->id);
+        $stmt->execute();
     }
 
     public function findById($id): ?Categoria
     {
-        $query = "SELECT id, nome FROM categorias WHERE id = $id";
+        $query = "SELECT id, nome FROM categorias WHERE id = :id";
         $conexao = Conexao::getConexao();
-        $resultado = $conexao->query($query);
-        $lista = $resultado->fetchAll();
+        $stmt = $conexao->prepare($query);
+        $stmt->bindValue(':id', $id);
+        $stmt->execute();
+        $lista = $stmt->fetchAll();
         $cat = null;
         if (!empty($lista)) {
             foreach ($lista as $row) {
